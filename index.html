@@ -1,277 +1,573 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+<html> = 整个网页的根元素
+lang="en" = 告诉浏览器：这个网页主要使用英语
+
+如果以后做中文网站，可以改成：
+<html lang="zh-CN">
+-->
 
 <head>
+
 <meta charset="UTF-8">
+<!--
+UTF-8 = 网页使用的字符编码
+可以正确显示英文、中文以及各种特殊符号
+-->
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--
+让网页适应手机、平板和电脑屏幕
+这是手机网站非常重要的一行
+-->
 
 <title>Richard's Learning Journey</title>
+<!--
+浏览器顶部标签页显示的网页名称
+
+修改这里：
+Richard's Learning Journey
+
+例如：
+Richard's Student Portfolio
+
+浏览器标签页的名字就会改变
+-->
 
 <style>
 
-/* ---------- BASIC ---------- */
+/* =====================================================
+   1. BASIC WEBSITE SETTINGS
+   ===================================================== */
 
 * {
     box-sizing: border-box;
 }
+/*
+* = 选择网页中的所有元素
+
+box-sizing: border-box
+= 让元素的宽度计算更加容易控制
+*/
+
 
 html {
     scroll-behavior: smooth;
 }
+/*
+scroll-behavior: smooth
+= 点击导航菜单时平滑滚动
+*/
+
 
 body {
     margin: 0;
+    /*
+    去掉浏览器默认的页面边距
+    */
+
     font-family: Arial, Helvetica, sans-serif;
+    /*
+    设置网站字体
+
+    可以修改成：
+    font-family: Georgia, serif;
+
+    网站字体就会发生变化
+    */
+
     background: #f5f7fb;
+    /*
+    网站整体背景颜色
+
+    修改 #f5f7fb
+    可以改变整个网站背景颜色
+    */
+
     color: #222;
+    /*
+    普通文字颜色
+    */
+
     line-height: 1.6;
+    /*
+    设置文字行间距
+    */
 }
 
 
-/* ---------- NAVIGATION ---------- */
+/* =====================================================
+   2. NAVIGATION
+   ===================================================== */
 
 nav {
     background: white;
+    /*
+    导航栏背景颜色
+    */
+
     padding: 16px;
+    /*
+    导航栏内部空间
+    */
+
     text-align: center;
+    /*
+    导航文字居中
+    */
+
     position: sticky;
+    /*
+    页面向下滚动时导航栏保持在顶部
+    */
+
     top: 0;
+
     z-index: 1000;
+    /*
+    保证导航栏显示在其他元素上面
+    */
+
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    /*
+    给导航栏增加阴影
+    */
 }
 
+
 nav a {
-    margin: 0 12px;
+    margin: 0 10px;
+    /*
+    控制导航菜单之间的距离
+    */
+
     text-decoration: none;
+    /*
+    去掉链接默认的下划线
+    */
+
     color: #333;
+    /*
+    导航文字颜色
+    */
+
     font-weight: bold;
+    /*
+    导航文字加粗
+    */
 }
+
 
 nav a:hover {
     color: #2563eb;
+    /*
+    鼠标放到导航菜单上时变成蓝色
+    */
 }
 
 
-/* ---------- HERO ---------- */
+/* =====================================================
+   3. HOME / HERO
+   ===================================================== */
 
 header {
     background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    /*
+    首页顶部的渐变背景
+
+    #1e3a8a = 深蓝色
+    #2563eb = 蓝色
+
+    修改这两个颜色，可以改变首页背景
+    */
+
     color: white;
+    /*
+    首页文字颜色
+    */
+
     text-align: center;
+    /*
+    文字居中
+    */
+
     padding: 110px 20px;
+    /*
+    首页上下和左右的空间
+    */
 }
+
 
 header h1 {
     font-size: 52px;
+    /*
+    首页最大标题的大小
+    */
+
     margin: 0 0 20px;
 }
 
+
 header p {
     font-size: 20px;
+    /*
+    首页介绍文字大小
+    */
+
     max-width: 800px;
     margin: 10px auto;
 }
 
+
 .button {
     display: inline-block;
+
     margin-top: 25px;
+
     padding: 13px 30px;
+
     background: white;
+
     color: #2563eb;
+
     text-decoration: none;
+
     border-radius: 30px;
+
     font-weight: bold;
 }
 
+
 .button:hover {
     background: #eef2ff;
+    /*
+    鼠标放到按钮上时改变背景颜色
+    */
 }
 
 
-/* ---------- SECTIONS ---------- */
+/* =====================================================
+   4. SECTION SETTINGS
+   ===================================================== */
 
 section {
     max-width: 1100px;
+    /*
+    每个栏目最大宽度
+    */
+
     margin: auto;
+    /*
+    让栏目水平居中
+    */
+
     padding: 75px 20px;
+    /*
+    控制每个栏目上下空间
+    */
 }
+
 
 h2 {
     text-align: center;
+
     font-size: 34px;
+
     margin-bottom: 45px;
 }
 
 
-/* ---------- CARDS ---------- */
+/* =====================================================
+   5. CARDS
+   ===================================================== */
 
 .cards {
     display: grid;
+    /*
+    使用网格布局
+    */
+
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    /*
+    自动排列卡片
+
+    电脑上可能显示多列
+    手机上会自动变成一列
+    */
+
     gap: 22px;
+    /*
+    卡片之间的距离
+    */
 }
+
 
 .card {
     background: white;
+
     padding: 30px;
+
     border-radius: 16px;
+    /*
+    卡片圆角
+    */
+
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    /*
+    卡片阴影
+    */
 }
+
 
 .card h3 {
     color: #2563eb;
+
     margin-top: 0;
 }
 
 
-/* ---------- CALENDAR ---------- */
+/* =====================================================
+   6. CALENDAR
+   ===================================================== */
 
 .calendar-box {
+
     background: white;
+
     padding: 35px;
+
     border-radius: 18px;
+
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
     max-width: 900px;
+
     margin: auto;
 }
 
+
 .calendar-title {
+
     text-align: center;
+
     font-size: 28px;
+
     font-weight: bold;
+
     margin-bottom: 25px;
 }
 
+
 .calendar {
+
     display: grid;
+
     grid-template-columns: repeat(7, 1fr);
+
     gap: 8px;
 }
 
+
 .calendar-header {
+
     text-align: center;
+
     font-weight: bold;
+
     padding: 10px;
 }
 
+
 .day {
+
     background: #f1f5f9;
+
     min-height: 65px;
+
     padding: 12px;
+
     border-radius: 10px;
+
     text-align: center;
+
     cursor: pointer;
+
     transition: 0.2s;
 }
 
+
 .day:hover {
+
     transform: translateY(-3px);
+
     background: #e0e7ff;
 }
 
+
 .learning-day {
+
     background: #2563eb;
+
     color: white;
+
     font-weight: bold;
 }
 
+
 .learning-day:hover {
+
     background: #1d4ed8;
 }
 
+
 .empty {
+
     min-height: 65px;
 }
 
+
 .learning-info {
+
     margin-top: 30px;
+
     padding: 25px;
+
     background: #f1f5f9;
+
     border-radius: 14px;
+
     display: none;
 }
 
+
 .learning-info h3 {
+
     color: #2563eb;
 }
 
 
-/* ---------- STATISTICS ---------- */
+/* =====================================================
+   7. STATISTICS
+   ===================================================== */
 
 .stats {
+
     display: grid;
+
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
     gap: 20px;
+
     text-align: center;
 }
 
+
 .stat {
+
     background: white;
+
     padding: 30px;
+
     border-radius: 15px;
+
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
+
 .stat-number {
+
     font-size: 38px;
+
     font-weight: bold;
+
     color: #2563eb;
 }
 
 
-/* ---------- TIMELINE ---------- */
+/* =====================================================
+   8. TIMELINE
+   ===================================================== */
 
 .timeline {
+
     border-left: 4px solid #2563eb;
+
     padding-left: 25px;
+
     max-width: 800px;
+
     margin: auto;
 }
 
+
 .timeline-item {
+
     background: white;
+
     padding: 22px;
+
     margin-bottom: 22px;
+
     border-radius: 12px;
+
     box-shadow: 0 4px 15px rgba(0,0,0,0.07);
 }
 
+
 .timeline-item h3 {
+
     color: #2563eb;
 }
 
 
-/* ---------- FOOTER ---------- */
+/* =====================================================
+   9. FOOTER
+   ===================================================== */
 
 footer {
+
     background: #111827;
+
     color: white;
+
     text-align: center;
+
     padding: 35px;
 }
 
 
-/* ---------- MOBILE ---------- */
+/* =====================================================
+   10. MOBILE PHONE
+   ===================================================== */
 
 @media (max-width: 700px) {
 
     header h1 {
+
         font-size: 38px;
     }
 
     nav a {
+
         display: inline-block;
+
         margin: 6px;
+
         font-size: 14px;
     }
 
     .calendar-box {
+
         padding: 15px;
     }
 
     .day {
+
         min-height: 50px;
+
         padding: 8px 3px;
+
         font-size: 14px;
     }
 
@@ -285,28 +581,50 @@ footer {
 <body>
 
 
-<!-- NAVIGATION -->
+<!-- =====================================================
+     NAVIGATION MENU
+     ===================================================== -->
 
 <nav>
 
 <a href="#home">Home</a>
+
 <a href="#about">About Me</a>
+
 <a href="#learning">Learning</a>
+
 <a href="#projects">Projects</a>
+
+<a href="#research">Research</a>
+
+<a href="#reading">Reading</a>
+
 <a href="#calendar">Calendar</a>
-<a href="#achievements">Achievements</a>
+
+<a href="#awards">Awards</a>
+
+<a href="#certificates">Certificates</a>
+
+<a href="#college">College Preparation</a>
+
+<a href="#activities">Activities</a>
+
 <a href="#journey">Journey</a>
 
 </nav>
 
 
-<!-- HOME -->
+<!-- =====================================================
+     HOME
+     ===================================================== -->
 
 <header id="home">
 
 <h1>Welcome to My Learning Journey</h1>
 
-<p>Learning · Creating · Growing</p>
+<p>
+Learning · Creating · Growing
+</p>
 
 <p>
 Hi, I'm Richard.
@@ -324,7 +642,9 @@ Explore My Projects
 </header>
 
 
-<!-- ABOUT -->
+<!-- =====================================================
+     ABOUT ME
+     ===================================================== -->
 
 <section id="about">
 
@@ -345,7 +665,8 @@ solving problems, and exploring new ideas.
 
 <p>
 This website records my learning journey,
-projects, achievements, and personal growth.
+projects, research, achievements, activities,
+and personal growth.
 </p>
 
 </div>
@@ -353,7 +674,9 @@ projects, achievements, and personal growth.
 </section>
 
 
-<!-- LEARNING -->
+<!-- =====================================================
+     LEARNING
+     ===================================================== -->
 
 <section id="learning">
 
@@ -361,60 +684,88 @@ projects, achievements, and personal growth.
 
 <div class="cards">
 
+
 <div class="card">
+
 <h3>💻 Computer Science</h3>
+
 <p>
 Programming, technology, and computer science.
 </p>
+
 </div>
 
+
 <div class="card">
+
 <h3>🔬 Science</h3>
+
 <p>
 Exploring science through experiments and projects.
 </p>
+
 </div>
 
+
 <div class="card">
+
 <h3>📐 Mathematics</h3>
+
 <p>
 Developing mathematical thinking and problem-solving skills.
 </p>
+
 </div>
 
+
 <div class="card">
+
 <h3>🌎 English</h3>
+
 <p>
 Improving communication, writing, and reading skills.
 </p>
+
 </div>
 
+
 <div class="card">
+
 <h3>⚙️ Engineering</h3>
+
 <p>
 Exploring engineering, design, and technology.
 </p>
+
 </div>
 
+
 <div class="card">
+
 <h3>🤖 Artificial Intelligence</h3>
+
 <p>
 Exploring AI, emerging technologies, and their applications.
 </p>
+
 </div>
+
 
 </div>
 
 </section>
 
 
-<!-- PROJECTS -->
+<!-- =====================================================
+     PROJECTS
+     ===================================================== -->
 
 <section id="projects">
 
 <h2>My Projects</h2>
 
 <div class="cards">
+
 
 <div class="card">
 
@@ -461,12 +812,207 @@ A science project and what I learned from it.
 </div>
 
 
+<!--
+=========================================================
+HOW TO ADD A NEW PROJECT
+
+复制下面这一整个 card：
+
+<div class="card">
+
+<h3>Project 04</h3>
+
+<p>
+<strong>My New Project</strong>
+</p>
+
+<p>
+Describe what you did and what you learned.
+</p>
+
+</div>
+
+修改：
+Project 04
+项目名称
+项目介绍
+
+就可以增加新的项目。
+=========================================================
+-->
+
 </div>
 
 </section>
 
 
-<!-- CALENDAR -->
+<!-- =====================================================
+     RESEARCH
+     ===================================================== -->
+
+<section id="research">
+
+<h2>Research</h2>
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>Research Project 01</h3>
+
+<p>
+<strong>Research Topic</strong>
+</p>
+
+<p>
+Describe the research question, methods,
+findings, and what I learned.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Research Project 02</h3>
+
+<p>
+<strong>Future Research</strong>
+</p>
+
+<p>
+A research topic I would like to explore.
+</p>
+
+</div>
+
+
+<!--
+ADD NEW RESEARCH
+
+<div class="card">
+
+<h3>Research Project 03</h3>
+
+<p>
+<strong>My Research Topic</strong>
+</p>
+
+<p>
+Describe your research.
+</p>
+
+</div>
+
+-->
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     READING
+     ===================================================== -->
+
+<section id="reading">
+
+<h2>Reading</h2>
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>📖 Book 01</h3>
+
+<p>
+<strong>Book Title</strong>
+</p>
+
+<p>
+Author: Author Name
+</p>
+
+<p>
+What I learned from this book.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>📖 Book 02</h3>
+
+<p>
+<strong>Book Title</strong>
+</p>
+
+<p>
+Author: Author Name
+</p>
+
+<p>
+My thoughts and key ideas.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>📖 Book 03</h3>
+
+<p>
+<strong>Book Title</strong>
+</p>
+
+<p>
+Author: Author Name
+</p>
+
+<p>
+What this book taught me.
+</p>
+
+</div>
+
+
+<!--
+ADD A NEW BOOK
+
+复制下面代码：
+
+<div class="card">
+
+<h3>📖 Book 04</h3>
+
+<p>
+<strong>Book Title</strong>
+</p>
+
+<p>
+Author: Author Name
+</p>
+
+<p>
+What I learned from this book.
+</p>
+
+</div>
+
+-->
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CALENDAR
+     ===================================================== -->
 
 <section id="calendar">
 
@@ -475,43 +1021,65 @@ A science project and what I learned from it.
 <div class="calendar-box">
 
 <div class="calendar-title">
+
 August 2026
+
 </div>
 
 
 <div class="calendar">
 
+
 <div class="calendar-header">Sun</div>
+
 <div class="calendar-header">Mon</div>
+
 <div class="calendar-header">Tue</div>
+
 <div class="calendar-header">Wed</div>
+
 <div class="calendar-header">Thu</div>
+
 <div class="calendar-header">Fri</div>
+
 <div class="calendar-header">Sat</div>
 
 
-<!-- August 1, 2026 is Saturday -->
+<!-- August 2026 -->
 
 <div class="empty"></div>
+
 <div class="empty"></div>
+
 <div class="empty"></div>
+
 <div class="empty"></div>
+
 <div class="empty"></div>
+
 <div class="empty"></div>
+
 
 <div class="day">1</div>
 
 <div class="day">2</div>
+
 <div class="day">3</div>
+
 <div class="day">4</div>
+
 <div class="day">5</div>
+
 <div class="day">6</div>
+
 <div class="day">7</div>
 
 
 <!-- AUGUST 8 -->
 
-<div class="day learning-day"
+<div
+class="day learning-day"
+
 onclick="showLearning(
 'August 8, 2026',
 'Computer Science',
@@ -524,13 +1092,17 @@ onclick="showLearning(
 
 
 <div class="day">9</div>
+
 <div class="day">10</div>
+
 <div class="day">11</div>
 
 
 <!-- AUGUST 12 -->
 
-<div class="day learning-day"
+<div
+class="day learning-day"
+
 onclick="showLearning(
 'August 12, 2026',
 'Mathematics',
@@ -543,18 +1115,27 @@ onclick="showLearning(
 
 
 <div class="day">13</div>
+
 <div class="day">14</div>
+
 <div class="day">15</div>
+
 <div class="day">16</div>
+
 <div class="day">17</div>
+
 <div class="day">18</div>
+
 <div class="day">19</div>
+
 <div class="day">20</div>
 
 
 <!-- AUGUST 21 -->
 
-<div class="day learning-day"
+<div
+class="day learning-day"
+
 onclick="showLearning(
 'August 21, 2026',
 'Science',
@@ -567,28 +1148,40 @@ onclick="showLearning(
 
 
 <div class="day">22</div>
+
 <div class="day">23</div>
+
 <div class="day">24</div>
+
 <div class="day">25</div>
+
 <div class="day">26</div>
+
 <div class="day">27</div>
+
 <div class="day">28</div>
+
 <div class="day">29</div>
+
 <div class="day">30</div>
+
 <div class="day">31</div>
 
 </div>
 
 
-<!-- LEARNING DETAILS -->
+<!-- LEARNING INFORMATION -->
 
 <div class="learning-info" id="learningInfo">
 
 <h3 id="learningDate"></h3>
 
 <p>
+
 <strong>Subject:</strong>
+
 <span id="learningSubject"></span>
+
 </p>
 
 <p id="learningContent"></p>
@@ -600,7 +1193,335 @@ onclick="showLearning(
 </section>
 
 
-<!-- STATISTICS -->
+<!-- =====================================================
+     AWARDS
+     ===================================================== -->
+
+<section id="awards">
+
+<h2>Awards</h2>
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>🏆 Award 01</h3>
+
+<p>
+<strong>Award Name</strong>
+</p>
+
+<p>
+Date: 2026
+</p>
+
+<p>
+Description of the competition or achievement.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🏆 Award 02</h3>
+
+<p>
+<strong>Competition Achievement</strong>
+</p>
+
+<p>
+Date: 2026
+</p>
+
+<p>
+Describe the achievement.
+</p>
+
+</div>
+
+
+<!--
+ADD NEW AWARD
+
+<div class="card">
+
+<h3>🏆 Award 03</h3>
+
+<p>
+<strong>Award Name</strong>
+</p>
+
+<p>
+Date: 2026
+</p>
+
+<p>
+Description.
+</p>
+
+</div>
+
+-->
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CERTIFICATES
+     ===================================================== -->
+
+<section id="certificates">
+
+<h2>Certificates</h2>
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>📜 Certificate 01</h3>
+
+<p>
+<strong>Certificate Name</strong>
+</p>
+
+<p>
+Issued by: Organization
+</p>
+
+<p>
+Date: 2026
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>📜 Certificate 02</h3>
+
+<p>
+<strong>Course Certificate</strong>
+</p>
+
+<p>
+Issued by: Organization
+</p>
+
+<p>
+Date: 2026
+</p>
+
+</div>
+
+
+<!--
+ADD NEW CERTIFICATE
+
+<div class="card">
+
+<h3>📜 Certificate 03</h3>
+
+<p>
+<strong>Certificate Name</strong>
+</p>
+
+<p>
+Issued by: Organization
+</p>
+
+<p>
+Date: 2026
+</p>
+
+</div>
+
+-->
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     COLLEGE PREPARATION
+     ===================================================== -->
+
+<section id="college">
+
+<h2>College Preparation</h2>
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>🎓 Academic Goals</h3>
+
+<p>
+My academic goals and subjects I want to strengthen.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>💻 Technical Skills</h3>
+
+<p>
+Programming, engineering, computer science,
+and other technical skills.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🔬 Research Experience</h3>
+
+<p>
+Research projects, experiments,
+and academic interests.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>📝 College Applications</h3>
+
+<p>
+College research, application planning,
+essays, and important deadlines.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🌎 Extracurricular Activities</h3>
+
+<p>
+Activities, leadership, volunteering,
+and community involvement.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🚀 Future Goals</h3>
+
+<p>
+My goals for college and my future career.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ACTIVITIES
+     ===================================================== -->
+
+<section id="activities">
+
+<h2>Activities</h2>
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>🎯 School Activities</h3>
+
+<p>
+School clubs, events, competitions,
+and other activities.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🤝 Community Service</h3>
+
+<p>
+Volunteer work and community activities.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>💡 Personal Projects</h3>
+
+<p>
+Independent projects and activities
+outside of school.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🏃 Sports & Recreation</h3>
+
+<p>
+Sports, exercise, hobbies,
+and recreational activities.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🌎 Cultural Activities</h3>
+
+<p>
+Cultural experiences, travel,
+and international activities.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>👥 Leadership</h3>
+
+<p>
+Leadership experiences and teamwork.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     LEARNING STATISTICS
+     ===================================================== -->
 
 <section>
 
@@ -608,16 +1529,6 @@ onclick="showLearning(
 
 <div class="stats">
 
-<div class="stat">
-
-<div class="stat-number">
-3
-</div>
-
-<p>Learning Days</p>
-
-</div>
-
 
 <div class="stat">
 
@@ -625,7 +1536,9 @@ onclick="showLearning(
 3
 </div>
 
-<p>Projects</p>
+<p>
+Learning Days
+</p>
 
 </div>
 
@@ -633,10 +1546,12 @@ onclick="showLearning(
 <div class="stat">
 
 <div class="stat-number">
-2026
+3
 </div>
 
-<p>Learning Year</p>
+<p>
+Projects
+</p>
 
 </div>
 
@@ -644,81 +1559,70 @@ onclick="showLearning(
 <div class="stat">
 
 <div class="stat-number">
-∞
+0
 </div>
 
-<p>Ideas to Explore</p>
+<p>
+Research Projects
+</p>
 
 </div>
+
+
+<div class="stat">
+
+<div class="stat-number">
+0
+</div>
+
+<p>
+Awards
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-number">
+0
+</div>
+
+<p>
+Certificates
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-number">
+0
+</div>
+
+<p>
+Books Read
+</p>
+
+</div>
+
 
 </div>
 
 </section>
 
 
-<!-- ACHIEVEMENTS -->
-
-<section id="achievements">
-
-<h2>Achievements</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<h3>🏆 Competitions</h3>
-
-<p>
-Competition achievements and awards.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>📜 Certificates</h3>
-
-<p>
-Certificates and completed courses.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🎓 School Activities</h3>
-
-<p>
-School activities and extracurricular experiences.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>🌎 Community Activities</h3>
-
-<p>
-Community service and meaningful activities.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- JOURNEY -->
+<!-- =====================================================
+     LEARNING JOURNEY
+     ===================================================== -->
 
 <section id="journey">
 
 <h2>My Learning Journey</h2>
 
 <div class="timeline">
+
 
 <div class="timeline-item">
 
@@ -752,12 +1656,30 @@ Continue learning, creating, and growing.
 
 </div>
 
+
+<!--
+ADD A NEW JOURNEY EVENT
+
+<div class="timeline-item">
+
+<h3>2027</h3>
+
+<p>
+Describe an important experience or achievement.
+</p>
+
+</div>
+
+-->
+
 </div>
 
 </section>
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
 
 <footer>
 
@@ -772,17 +1694,56 @@ Learning · Creating · Growing
 </footer>
 
 
-<!-- JAVASCRIPT -->
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
 
 <script>
 
+/*
+=========================================================
+LEARNING CALENDAR FUNCTION
+
+这个函数负责：
+
+点击日历中的学习日期
+        ↓
+读取日期
+        ↓
+读取学习科目
+        ↓
+读取学习内容
+        ↓
+显示在网页上
+=========================================================
+*/
+
 function showLearning(date, subject, content) {
+
+    /*
+    显示学习信息区域
+    */
 
     document.getElementById("learningInfo").style.display = "block";
 
+
+    /*
+    显示日期
+    */
+
     document.getElementById("learningDate").innerText = date;
 
+
+    /*
+    显示学习科目
+    */
+
     document.getElementById("learningSubject").innerText = subject;
+
+
+    /*
+    显示学习内容
+    */
 
     document.getElementById("learningContent").innerText = content;
 
