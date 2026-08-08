@@ -5,171 +5,317 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My Learning Journey</title>
+<title>Richard's Learning Journey</title>
 
 <style>
+
+/* ---------- BASIC ---------- */
 
 * {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: #f5f7fb;
     color: #222;
+    line-height: 1.6;
 }
 
-header {
-    background: linear-gradient(135deg, #1e3a8a, #2563eb);
-    color: white;
-    text-align: center;
-    padding: 90px 20px;
-}
 
-header h1 {
-    font-size: 48px;
-    margin-bottom: 15px;
-}
-
-header p {
-    font-size: 20px;
-}
-
-.button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    background: white;
-    color: #2563eb;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: bold;
-}
+/* ---------- NAVIGATION ---------- */
 
 nav {
     background: white;
-    padding: 15px;
+    padding: 16px;
     text-align: center;
     position: sticky;
     top: 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
 nav a {
-    margin: 0 15px;
+    margin: 0 12px;
     text-decoration: none;
     color: #333;
     font-weight: bold;
 }
 
+nav a:hover {
+    color: #2563eb;
+}
+
+
+/* ---------- HERO ---------- */
+
+header {
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    color: white;
+    text-align: center;
+    padding: 110px 20px;
+}
+
+header h1 {
+    font-size: 52px;
+    margin: 0 0 20px;
+}
+
+header p {
+    font-size: 20px;
+    max-width: 800px;
+    margin: 10px auto;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 13px 30px;
+    background: white;
+    color: #2563eb;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.button:hover {
+    background: #eef2ff;
+}
+
+
+/* ---------- SECTIONS ---------- */
+
 section {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
-    padding: 60px 20px;
+    padding: 75px 20px;
 }
 
 h2 {
     text-align: center;
-    font-size: 32px;
-    margin-bottom: 40px;
+    font-size: 34px;
+    margin-bottom: 45px;
 }
+
+
+/* ---------- CARDS ---------- */
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
 }
 
 .card {
     background: white;
     padding: 30px;
-    border-radius: 15px;
+    border-radius: 16px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
 .card h3 {
     color: #2563eb;
+    margin-top: 0;
 }
 
-.timeline {
-    border-left: 4px solid #2563eb;
-    padding-left: 25px;
-}
+
+/* ---------- CALENDAR ---------- */
+
 .calendar-box {
     background: white;
-    padding: 30px;
-    border-radius: 15px;
-    max-width: 800px;
-    margin: auto;
+    padding: 35px;
+    border-radius: 18px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    max-width: 900px;
+    margin: auto;
 }
 
-.calendar-box h3 {
+.calendar-title {
     text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 25px;
 }
 
 .calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 8px;
-    text-align: center;
 }
 
-.calendar div {
+.calendar-header {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.day {
+    background: #f1f5f9;
+    min-height: 65px;
     padding: 12px;
-    border-radius: 8px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.day:hover {
+    transform: translateY(-3px);
+    background: #e0e7ff;
 }
 
 .learning-day {
     background: #2563eb;
     color: white;
     font-weight: bold;
-    cursor: pointer;
 }
 
-.calendar-note {
-    margin-top: 30px;
-    padding: 20px;
-    background: #f5f7fb;
-    border-radius: 10px;
+.learning-day:hover {
+    background: #1d4ed8;
 }
+
+.empty {
+    min-height: 65px;
+}
+
+.learning-info {
+    margin-top: 30px;
+    padding: 25px;
+    background: #f1f5f9;
+    border-radius: 14px;
+    display: none;
+}
+
+.learning-info h3 {
+    color: #2563eb;
+}
+
+
+/* ---------- STATISTICS ---------- */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.stat {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.stat-number {
+    font-size: 38px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+
+/* ---------- TIMELINE ---------- */
+
+.timeline {
+    border-left: 4px solid #2563eb;
+    padding-left: 25px;
+    max-width: 800px;
+    margin: auto;
+}
+
 .timeline-item {
     background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 22px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
 }
+
+.timeline-item h3 {
+    color: #2563eb;
+}
+
+
+/* ---------- FOOTER ---------- */
 
 footer {
     background: #111827;
     color: white;
     text-align: center;
-    padding: 30px;
+    padding: 35px;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 700px) {
+
+    header h1 {
+        font-size: 38px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 6px;
+        font-size: 14px;
+    }
+
+    .calendar-box {
+        padding: 15px;
+    }
+
+    .day {
+        min-height: 50px;
+        padding: 8px 3px;
+        font-size: 14px;
+    }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- NAVIGATION -->
+
 <nav>
 
-<a href="#about">About</a>
+<a href="#home">Home</a>
+<a href="#about">About Me</a>
 <a href="#learning">Learning</a>
 <a href="#projects">Projects</a>
+<a href="#calendar">Calendar</a>
 <a href="#achievements">Achievements</a>
 <a href="#journey">Journey</a>
-<a href="#calendar">Calendar</a>
+
 </nav>
 
-<header>
 
-<h1>My Learning Journey</h1>
+<!-- HOME -->
+
+<header id="home">
+
+<h1>Welcome to My Learning Journey</h1>
 
 <p>Learning · Creating · Growing</p>
 
-<p>Hi,Welcome to Welcome to My Learning Journey, I'm Richard.</p>
+<p>
+Hi, I'm Richard.
+</p>
+
+<p>
+I am an 11th-grade student at Lexington High School
+who enjoys learning, growing, and exploring new ideas.
+</p>
 
 <a class="button" href="#projects">
 Explore My Projects
@@ -178,30 +324,36 @@ Explore My Projects
 </header>
 
 
+<!-- ABOUT -->
+
 <section id="about">
 
 <h2>About Me</h2>
 
 <div class="card">
 
+<h3>Hi, I'm Richard.</h3>
+
 <p>
-Hello! My name is Richard.
+I am an 11th-grade student at Lexington High School.
 </p>
 
 <p>
-I am an 11th-grade student at Lexington High School, passionate about learning and personal growth,
-creating projects and exploring new ideas.
+I enjoy learning new things, working on projects,
+solving problems, and exploring new ideas.
 </p>
 
 <p>
 This website records my learning journey,
-projects, achievements and personal growth.
+projects, achievements, and personal growth.
 </p>
 
 </div>
 
 </section>
 
+
+<!-- LEARNING -->
 
 <section id="learning">
 
@@ -211,28 +363,52 @@ projects, achievements and personal growth.
 
 <div class="card">
 <h3>💻 Computer Science</h3>
-<p>Programming, technology and computer science.</p>
+<p>
+Programming, technology, and computer science.
+</p>
 </div>
 
 <div class="card">
 <h3>🔬 Science</h3>
-<p>Exploring science through experiments and projects.</p>
+<p>
+Exploring science through experiments and projects.
+</p>
 </div>
 
 <div class="card">
 <h3>📐 Mathematics</h3>
-<p>Improving mathematical thinking and problem solving.</p>
+<p>
+Developing mathematical thinking and problem-solving skills.
+</p>
 </div>
 
 <div class="card">
 <h3>🌎 English</h3>
-<p>Developing English communication and reading skills.</p>
+<p>
+Improving communication, writing, and reading skills.
+</p>
+</div>
+
+<div class="card">
+<h3>⚙️ Engineering</h3>
+<p>
+Exploring engineering, design, and technology.
+</p>
+</div>
+
+<div class="card">
+<h3>🤖 Artificial Intelligence</h3>
+<p>
+Exploring AI, emerging technologies, and their applications.
+</p>
 </div>
 
 </div>
 
 </section>
 
+
+<!-- PROJECTS -->
 
 <section id="projects">
 
@@ -241,27 +417,246 @@ projects, achievements and personal growth.
 <div class="cards">
 
 <div class="card">
+
 <h3>Project 01</h3>
-<p>My First Website</p>
-<p>Created my first personal website using HTML and CSS.</p>
+
+<p>
+<strong>My Personal Website</strong>
+</p>
+
+<p>
+Created my own learning portfolio using HTML and CSS.
+</p>
+
 </div>
 
+
 <div class="card">
+
 <h3>Project 02</h3>
-<p>Python Project</p>
-<p>My first programming project.</p>
+
+<p>
+<strong>Python Project</strong>
+</p>
+
+<p>
+My first programming project.
+</p>
+
 </div>
 
+
 <div class="card">
+
 <h3>Project 03</h3>
-<p>Science Project</p>
-<p>A science project and what I learned from it.</p>
+
+<p>
+<strong>Science Project</strong>
+</p>
+
+<p>
+A science project and what I learned from it.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- CALENDAR -->
+
+<section id="calendar">
+
+<h2>📅 My Learning Calendar</h2>
+
+<div class="calendar-box">
+
+<div class="calendar-title">
+August 2026
+</div>
+
+
+<div class="calendar">
+
+<div class="calendar-header">Sun</div>
+<div class="calendar-header">Mon</div>
+<div class="calendar-header">Tue</div>
+<div class="calendar-header">Wed</div>
+<div class="calendar-header">Thu</div>
+<div class="calendar-header">Fri</div>
+<div class="calendar-header">Sat</div>
+
+
+<!-- August 1, 2026 is Saturday -->
+
+<div class="empty"></div>
+<div class="empty"></div>
+<div class="empty"></div>
+<div class="empty"></div>
+<div class="empty"></div>
+<div class="empty"></div>
+
+<div class="day">1</div>
+
+<div class="day">2</div>
+<div class="day">3</div>
+<div class="day">4</div>
+<div class="day">5</div>
+<div class="day">6</div>
+<div class="day">7</div>
+
+
+<!-- AUGUST 8 -->
+
+<div class="day learning-day"
+onclick="showLearning(
+'August 8, 2026',
+'Computer Science',
+'Created my personal website and learned how GitHub Pages works.'
+)">
+
+8
+
+</div>
+
+
+<div class="day">9</div>
+<div class="day">10</div>
+<div class="day">11</div>
+
+
+<!-- AUGUST 12 -->
+
+<div class="day learning-day"
+onclick="showLearning(
+'August 12, 2026',
+'Mathematics',
+'Completed algebra exercises and practiced problem-solving.'
+)">
+
+12
+
+</div>
+
+
+<div class="day">13</div>
+<div class="day">14</div>
+<div class="day">15</div>
+<div class="day">16</div>
+<div class="day">17</div>
+<div class="day">18</div>
+<div class="day">19</div>
+<div class="day">20</div>
+
+
+<!-- AUGUST 21 -->
+
+<div class="day learning-day"
+onclick="showLearning(
+'August 21, 2026',
+'Science',
+'Completed a science project and recorded the results.'
+)">
+
+21
+
+</div>
+
+
+<div class="day">22</div>
+<div class="day">23</div>
+<div class="day">24</div>
+<div class="day">25</div>
+<div class="day">26</div>
+<div class="day">27</div>
+<div class="day">28</div>
+<div class="day">29</div>
+<div class="day">30</div>
+<div class="day">31</div>
+
+</div>
+
+
+<!-- LEARNING DETAILS -->
+
+<div class="learning-info" id="learningInfo">
+
+<h3 id="learningDate"></h3>
+
+<p>
+<strong>Subject:</strong>
+<span id="learningSubject"></span>
+</p>
+
+<p id="learningContent"></p>
+
 </div>
 
 </div>
 
 </section>
 
+
+<!-- STATISTICS -->
+
+<section>
+
+<h2>My Learning Statistics</h2>
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-number">
+3
+</div>
+
+<p>Learning Days</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-number">
+3
+</div>
+
+<p>Projects</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-number">
+2026
+</div>
+
+<p>Learning Year</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-number">
+∞
+</div>
+
+<p>Ideas to Explore</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ACHIEVEMENTS -->
 
 <section id="achievements">
 
@@ -270,93 +665,44 @@ projects, achievements and personal growth.
 <div class="cards">
 
 <div class="card">
-<h3>🏆 Competition</h3>
-<p>Competition achievements and awards.</p>
-</div>
 
-<div class="card">
-<h3>📜 Certificates</h3>
-<p>Certificates and completed courses.</p>
-</div>
-
-<div class="card">
-<h3>🎓 School Activities</h3>
-<p>School activities and extracurricular experiences.</p>
-</div>
-
-</div>
-
-</section>
-<section id="calendar">
-
-<h2>📅 My Learning Calendar</h2>
-
-<div class="calendar-box">
-
-<h3>August 2026</h3>
-
-<div class="calendar">
-
-<div>Sun</div>
-<div>Mon</div>
-<div>Tue</div>
-<div>Wed</div>
-<div>Thu</div>
-<div>Fri</div>
-<div>Sat</div>
-
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div>1</div>
-<div>2</div>
-
-<div>3</div>
-<div>4</div>
-<div>5</div>
-<div>6</div>
-<div>7</div>
-<div class="learning-day">8</div>
-<div>9</div>
-
-<div>10</div>
-<div>11</div>
-<div>12</div>
-<div>13</div>
-<div>14</div>
-<div>15</div>
-<div>16</div>
-
-<div>17</div>
-<div>18</div>
-<div>19</div>
-<div>20</div>
-<div>21</div>
-<div>22</div>
-<div>23</div>
-
-<div>24</div>
-<div>25</div>
-<div>26</div>
-<div>27</div>
-<div>28</div>
-<div>29</div>
-<div>30</div>
-
-<div>31</div>
-
-</div>
-
-<div class="calendar-note">
-
-<h3>August 8, 2026</h3>
-
-<p>💻 <strong>Python</strong></p>
+<h3>🏆 Competitions</h3>
 
 <p>
-Learned Python variables and basic programming.
+Competition achievements and awards.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>📜 Certificates</h3>
+
+<p>
+Certificates and completed courses.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🎓 School Activities</h3>
+
+<p>
+School activities and extracurricular experiences.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🌎 Community Activities</h3>
+
+<p>
+Community service and meaningful activities.
 </p>
 
 </div>
@@ -365,6 +711,9 @@ Learned Python variables and basic programming.
 
 </section>
 
+
+<!-- JOURNEY -->
+
 <section id="journey">
 
 <h2>My Learning Journey</h2>
@@ -372,18 +721,35 @@ Learned Python variables and basic programming.
 <div class="timeline">
 
 <div class="timeline-item">
+
 <h3>2026</h3>
-<p>Started building my personal learning portfolio.</p>
+
+<p>
+Started building my personal learning portfolio.
+</p>
+
 </div>
 
+
 <div class="timeline-item">
+
 <h3>Next Step</h3>
-<p>Learn new skills and complete more projects.</p>
+
+<p>
+Learn new skills and complete more projects.
+</p>
+
 </div>
 
+
 <div class="timeline-item">
+
 <h3>Future</h3>
-<p>Continue learning, creating and growing.</p>
+
+<p>
+Continue learning, creating, and growing.
+</p>
+
 </div>
 
 </div>
@@ -391,13 +757,39 @@ Learned Python variables and basic programming.
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
 
-<p>© 2026 Richard | My Learning Journey</p>
+<p>
+© 2026 Richard | My Learning Journey
+</p>
 
-<p>Learning · Creating · Growing</p>
+<p>
+Learning · Creating · Growing
+</p>
 
 </footer>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+function showLearning(date, subject, content) {
+
+    document.getElementById("learningInfo").style.display = "block";
+
+    document.getElementById("learningDate").innerText = date;
+
+    document.getElementById("learningSubject").innerText = subject;
+
+    document.getElementById("learningContent").innerText = content;
+
+}
+
+</script>
+
 
 </body>
 
