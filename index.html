@@ -1,722 +1,1206 @@
 <!DOCTYPE html>
+<!-- 声明当前网页使用 HTML5 标准 -->
+
 <html lang="en">
+<!-- HTML 网页的根元素，lang="en" 表示网页主要语言是英语 -->
 
 <head>
+<!-- head 开始：这里放网页的设置和元信息 -->
 
 <meta charset="UTF-8">
+<!-- 设置字符编码为 UTF-8，可以正常显示中文、英文和特殊符号 -->
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 设置移动设备显示方式，使网页能够适应手机和平板屏幕 -->
 
 <title>Richard's Student Portfolio</title>
+<!-- 设置浏览器标签页显示的网页标题 -->
 
 <style>
+/* CSS 样式代码开始 */
+
 
 /* =========================
    BASIC SETTINGS
+   基本设置
    ========================= */
 
+/* 让所有元素的 width 和 height 包含 padding 和 border */
 * {
     box-sizing: border-box;
 }
 
+/* 设置网页滚动时使用平滑滚动效果 */
 html {
     scroll-behavior: smooth;
 }
 
+/* 设置整个网页 body 的基本样式 */
 body {
     margin: 0;
+    /* 去掉浏览器默认的外边距 */
+
     font-family: Arial, Helvetica, sans-serif;
+    /* 设置网页字体 */
+
     background: #f5f7fb;
+    /* 设置网页背景颜色 */
+
     color: #222;
+    /* 设置默认文字颜色 */
+
     line-height: 1.6;
+    /* 设置文字行高 */
 }
 
 
 /* =========================
    NAVIGATION
+   导航栏
    ========================= */
 
+/* 设置导航栏 */
 nav {
     background: white;
+    /* 导航栏背景为白色 */
+
     padding: 15px;
+    /* 导航栏内部上下左右留出 15px 空间 */
+
     text-align: center;
+    /* 导航链接居中 */
+
     position: sticky;
+    /* 设置导航栏为粘性定位 */
+
     top: 0;
+    /* 当页面滚动到顶部时，导航栏固定在顶部 */
+
     z-index: 1000;
+    /* 保证导航栏显示在其他内容上方 */
+
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    /* 给导航栏添加淡淡的阴影 */
 }
 
+/* 设置导航栏中的链接 */
 nav a {
     margin: 0 8px;
+    /* 每个链接左右增加 8px 外边距 */
+
     text-decoration: none;
+    /* 去掉链接默认的下划线 */
+
     color: #333;
+    /* 设置链接文字颜色 */
+
     font-weight: bold;
+    /* 设置链接文字为粗体 */
 }
 
+/* 鼠标移动到导航链接上时 */
 nav a:hover {
     color: #2563eb;
+    /* 鼠标悬停时改变文字颜色 */
 }
 
 
 /* =========================
    HOME
+   首页
    ========================= */
 
+/* 设置首页 header */
 header {
     background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    /* 设置从深蓝到浅蓝的渐变背景 */
+
     color: white;
+    /* header 中的文字使用白色 */
+
     text-align: center;
+    /* 所有内容居中 */
+
     padding: 110px 20px;
+    /* 上下 110px，左右 20px */
 }
 
+/* 设置首页主标题 */
 header h1 {
     font-size: 52px;
+    /* 设置标题字体大小 */
+
     margin: 0 0 20px;
+    /* 设置标题下方 20px 外边距 */
 }
 
+/* 设置首页段落 */
 header p {
     font-size: 20px;
+    /* 设置段落文字大小 */
+
     max-width: 800px;
+    /* 设置段落最大宽度 */
+
     margin: 10px auto;
+    /* 上下 10px，左右自动居中 */
 }
 
+/* 设置按钮样式 */
 .button {
     display: inline-block;
+    /* 让链接可以设置宽度、高度和内边距 */
+
     margin-top: 25px;
+    /* 按钮上方留出 25px */
+
     padding: 13px 30px;
+    /* 设置按钮内部上下和左右空间 */
+
     background: white;
+    /* 按钮背景为白色 */
+
     color: #2563eb;
+    /* 按钮文字为蓝色 */
+
     text-decoration: none;
+    /* 去掉链接下划线 */
+
     border-radius: 30px;
+    /* 设置圆角，让按钮呈胶囊形 */
+
     font-weight: bold;
+    /* 按钮文字加粗 */
 }
 
+/* 鼠标移动到按钮上时 */
 .button:hover {
     background: #eef2ff;
+    /* 改变按钮背景颜色 */
 }
 
 
 /* =========================
    SECTIONS
+   页面区域
    ========================= */
 
+/* 设置所有 section */
 section {
     max-width: 1100px;
+    /* 设置内容最大宽度 */
+
     margin: auto;
+    /* 水平自动居中 */
+
     padding: 70px 20px;
+    /* 设置上下和左右内边距 */
 }
 
+/* 设置二级标题 */
 h2 {
     text-align: center;
+    /* 标题居中 */
+
     font-size: 34px;
+    /* 设置标题字体大小 */
+
     margin-bottom: 40px;
+    /* 标题下方留出 40px */
 }
 
 
 /* =========================
    CARDS
+   卡片
    ========================= */
 
+/* 设置卡片容器 */
 .cards {
     display: grid;
+    /* 使用 CSS Grid 布局 */
+
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    /* 根据屏幕宽度自动调整卡片数量 */
+
     gap: 22px;
+    /* 卡片之间间隔 22px */
 }
 
+/* 设置单个卡片 */
 .card {
     background: white;
+    /* 卡片背景为白色 */
+
     padding: 30px;
+    /* 卡片内部留出 30px */
+
     border-radius: 16px;
+    /* 设置卡片圆角 */
+
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    /* 设置卡片阴影 */
 }
 
+/* 设置卡片中的 h3 */
 .card h3 {
     color: #2563eb;
+    /* h3 标题设置为蓝色 */
+
     margin-top: 0;
+    /* 去掉 h3 顶部默认外边距 */
 }
 
 
 /* =========================
    MEDIA
+   图片、音频和视频
    ========================= */
 
+/* 设置图片 */
 .media-image {
     width: 100%;
+    /* 图片宽度占父元素 100% */
+
     max-width: 500px;
+    /* 图片最大宽度为 500px */
+
     border-radius: 15px;
+    /* 图片设置圆角 */
+
     display: block;
+    /* 将图片设置为块级元素 */
+
     margin: auto;
+    /* 图片水平居中 */
 }
 
+/* 设置视频 */
 .media-video {
     width: 100%;
+    /* 视频宽度占父元素 100% */
+
     max-width: 700px;
+    /* 视频最大宽度为 700px */
+
     border-radius: 15px;
+    /* 视频设置圆角 */
+
     display: block;
+    /* 设置为块级元素 */
+
     margin: auto;
+    /* 视频水平居中 */
 }
 
+/* 设置 audio 音频播放器 */
 audio {
     width: 100%;
+    /* 音频播放器占满父元素宽度 */
 }
 
 
 /* =========================
    CALENDAR
+   日历
    ========================= */
 
+/* 设置日历外面的白色盒子 */
 .calendar-box {
     background: white;
+    /* 设置背景为白色 */
+
     padding: 35px;
+    /* 设置内部空间 */
+
     border-radius: 18px;
+    /* 设置圆角 */
+
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    /* 添加阴影 */
+
     max-width: 900px;
+    /* 设置最大宽度 */
+
     margin: auto;
+    /* 水平居中 */
 }
 
+/* 设置日历标题 */
 .calendar-title {
     text-align: center;
+    /* 标题居中 */
+
     font-size: 28px;
+    /* 设置字体大小 */
+
     font-weight: bold;
+    /* 设置粗体 */
+
     margin-bottom: 25px;
+    /* 标题下方留出空间 */
 }
 
+/* 设置日历网格 */
 .calendar {
     display: grid;
+    /* 使用 Grid 布局 */
+
     grid-template-columns: repeat(7, 1fr);
+    /* 创建 7 列，分别代表星期日到星期六 */
+
     gap: 8px;
+    /* 每个日期之间间隔 8px */
 }
 
+/* 设置星期标题 */
 .calendar-header {
     text-align: center;
+    /* 星期文字居中 */
+
     font-weight: bold;
+    /* 星期文字加粗 */
+
     padding: 10px;
+    /* 增加内部空间 */
 }
 
+/* 设置普通日期 */
 .day {
     background: #f1f5f9;
+    /* 日期背景颜色 */
+
     min-height: 65px;
+    /* 最小高度 */
+
     padding: 12px;
+    /* 日期内部空间 */
+
     border-radius: 10px;
+    /* 日期圆角 */
+
     text-align: center;
+    /* 日期数字居中 */
+
     cursor: pointer;
+    /* 鼠标移动到日期上显示手形 */
+
     transition: 0.2s;
+    /* 设置动画过渡时间 */
 }
 
+/* 鼠标移动到日期时 */
 .day:hover {
     transform: translateY(-3px);
+    /* 日期向上移动 3px */
+
     background: #e0e7ff;
+    /* 改变背景颜色 */
 }
 
+/* 设置有学习内容的日期 */
 .learning-day {
     background: #2563eb;
+    /* 学习日期使用蓝色 */
+
     color: white;
+    /* 文字使用白色 */
+
     font-weight: bold;
+    /* 日期数字加粗 */
 }
 
+/* 鼠标移动到学习日期时 */
 .learning-day:hover {
     background: #1d4ed8;
+    /* 改变背景颜色 */
 }
 
+/* 设置日历中的空白日期 */
 .empty {
     min-height: 65px;
+    /* 空白位置保持与日期相同高度 */
 }
 
+/* 设置学习信息区域 */
 .learning-info {
     margin-top: 30px;
+    /* 与日历之间留出 30px */
+
     padding: 25px;
+    /* 内部留出空间 */
+
     background: #f1f5f9;
+    /* 设置背景颜色 */
+
     border-radius: 14px;
+    /* 设置圆角 */
+
     display: none;
+    /* 默认隐藏，点击学习日期后通过 JavaScript 显示 */
 }
 
+/* 设置学习信息标题 */
 .learning-info h3 {
     color: #2563eb;
+    /* 标题使用蓝色 */
 }
 
 
 /* =========================
    STATISTICS
+   学习统计
    ========================= */
 
+/* 设置统计区域 */
 .stats {
     display: grid;
+    /* 使用 Grid 布局 */
+
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    /* 自动根据屏幕宽度排列统计卡片 */
+
     gap: 20px;
+    /* 卡片之间间隔 */
+
     text-align: center;
+    /* 内容居中 */
 }
 
+/* 设置统计卡片 */
 .stat {
     background: white;
+    /* 白色背景 */
+
     padding: 25px;
+    /* 内部空间 */
+
     border-radius: 15px;
+    /* 圆角 */
+
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    /* 阴影 */
 }
 
+/* 设置统计数字 */
 .stat-number {
     font-size: 38px;
+    /* 数字字体大小 */
+
     font-weight: bold;
+    /* 数字加粗 */
+
     color: #2563eb;
+    /* 数字使用蓝色 */
 }
 
 
 /* =========================
    TIMELINE
+   时间线
    ========================= */
 
+/* 设置整个时间线 */
 .timeline {
     border-left: 4px solid #2563eb;
+    /* 左侧添加蓝色竖线 */
+
     padding-left: 25px;
+    /* 内容与竖线之间留出空间 */
+
     max-width: 800px;
+    /* 最大宽度 */
+
     margin: auto;
+    /* 水平居中 */
 }
 
+/* 设置时间线中的每一项 */
 .timeline-item {
     background: white;
+    /* 白色背景 */
+
     padding: 22px;
+    /* 内部空间 */
+
     margin-bottom: 22px;
+    /* 每个项目之间的距离 */
+
     border-radius: 12px;
+    /* 圆角 */
+
     box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    /* 阴影 */
 }
 
+/* 设置时间线标题 */
 .timeline-item h3 {
     color: #2563eb;
+    /* 标题使用蓝色 */
 }
 
 
 /* =========================
    FOOTER
+   页脚
    ========================= */
 
+/* 设置网页底部 */
 footer {
     background: #111827;
+    /* 设置深色背景 */
+
     color: white;
+    /* 设置白色文字 */
+
     text-align: center;
+    /* 文字居中 */
+
     padding: 35px;
+    /* 内部空间 */
 }
 
 
 /* =========================
    MOBILE
+   手机屏幕
    ========================= */
 
+/* 当屏幕宽度小于等于 700px 时执行以下 CSS */
 @media (max-width: 700px) {
 
+    /* 手机屏幕下调整首页标题大小 */
     header h1 {
         font-size: 38px;
     }
 
+    /* 手机屏幕下调整导航链接 */
     nav a {
         display: inline-block;
+        /* 允许设置链接大小 */
+
         margin: 5px;
+        /* 链接之间增加间距 */
+
         font-size: 13px;
+        /* 减小字体 */
     }
 
+    /* 手机屏幕下缩小日历盒子的内边距 */
     .calendar-box {
         padding: 15px;
     }
 
+    /* 手机屏幕下缩小日期格子 */
     .day {
         min-height: 50px;
+        /* 最小高度变成 50px */
+
         padding: 8px 3px;
+        /* 减少内部空间 */
+
         font-size: 14px;
+        /* 日期文字变小 */
     }
 
 }
 
+/* CSS 样式代码结束 */
+
 </style>
 
 </head>
+<!-- head 结束 -->
 
 
 <body>
+<!-- body 开始：这里面的内容会显示在网页上 -->
 
 
 <!-- =========================
      NAVIGATION
+     导航栏
      ========================= -->
 
 <nav>
+<!-- 导航栏开始 -->
 
 <a href="#home">Home</a>
+<!-- 点击后跳转到 id="home" 的区域 -->
 
 <a href="#about">About Me</a>
+<!-- 点击后跳转到 About Me -->
 
 <a href="#learning">Learning</a>
+<!-- 点击后跳转到 Learning -->
 
 <a href="#projects">Projects</a>
+<!-- 点击后跳转到 Projects -->
 
 <a href="#research">Research</a>
+<!-- 点击后跳转到 Research -->
 
 <a href="#reading">Reading</a>
+<!-- 点击后跳转到 Reading -->
 
 <a href="#calendar">Calendar</a>
+<!-- 点击后跳转到 Calendar -->
 
 <a href="#awards">Awards</a>
+<!-- 点击后跳转到 Awards -->
 
 <a href="#certificates">Certificates</a>
+<!-- 点击后跳转到 Certificates -->
 
 <a href="#college">College Preparation</a>
+<!-- 点击后跳转到 College Preparation -->
 
 <a href="#activities">Activities</a>
+<!-- 点击后跳转到 Activities -->
 
 <a href="#media">Media</a>
+<!-- 点击后跳转到 Media -->
 
 <a href="#journey">Journey</a>
+<!-- 点击后跳转到 Journey -->
 
 </nav>
+<!-- 导航栏结束 -->
 
 
 <!-- =========================
      HOME
+     首页
      ========================= -->
 
 <header id="home">
+<!-- 首页区域开始，id="home" 让导航可以跳转到这里 -->
 
 <h1>Welcome to My Student Portfolio</h1>
+<!-- 网页最大的一级标题 -->
 
 <p>Learning · Creating · Growing</p>
+<!-- 首页宣传语 -->
 
 <p>Hi, I'm Richard.</p>
+<!-- Richard 的问候语 -->
 
 <p>
+<!-- 段落开始 -->
+
 I am an 11th-grade student at Lexington High School
+<!-- 学生身份介绍 -->
+
 who enjoys learning, creating, and exploring new ideas.
+<!-- 学习兴趣介绍 -->
+
 </p>
+<!-- 段落结束 -->
 
 <a class="button" href="#projects">
+<!-- 创建一个按钮样式的链接，点击后跳转到 Projects -->
+
 Explore My Projects
+<!-- 按钮文字 -->
+
 </a>
+<!-- 链接结束 -->
 
 </header>
+<!-- 首页结束 -->
 
 
 <!-- =========================
      ABOUT ME
+     关于我
      ========================= -->
 
 <section id="about">
+<!-- About Me 区域开始 -->
 
 <h2>About Me</h2>
+<!-- 二级标题 -->
 
 <div class="card">
+<!-- 创建一个卡片 -->
 
 <h3>Hi, I'm Richard.</h3>
+<!-- 卡片标题 -->
 
 <p>
+<!-- 第一段开始 -->
+
 I am an 11th-grade student at Lexington High School.
+<!-- 学生介绍 -->
+
 </p>
+<!-- 第一段结束 -->
 
 <p>
+<!-- 第二段开始 -->
+
 I enjoy learning new things, working on projects,
 solving problems, and exploring new ideas.
+<!-- 描述 Richard 的兴趣 -->
+
 </p>
+<!-- 第二段结束 -->
 
 <p>
+<!-- 第三段开始 -->
+
 This website records my learning journey,
 projects, research, achievements, activities,
 and personal growth.
+<!-- 描述这个网站的用途 -->
+
 </p>
+<!-- 第三段结束 -->
 
 </div>
+<!-- 卡片结束 -->
 
 </section>
+<!-- About Me 区域结束 -->
 
 
 <!-- =========================
      LEARNING
+     学习
      ========================= -->
 
 <section id="learning">
+<!-- Learning 区域开始 -->
 
 <h2>What I Am Learning</h2>
+<!-- 学习内容标题 -->
 
 <div class="cards">
+<!-- 多个卡片的容器开始 -->
 
 
 <div class="card">
+<!-- Computer Science 卡片 -->
 
 <h3>💻 Computer Science</h3>
+<!-- 计算机科学标题 -->
 
 <p>
 Programming, technology, and computer science.
+<!-- 计算机科学学习内容 -->
+
 </p>
 
 </div>
+<!-- Computer Science 卡片结束 -->
 
 
 <div class="card">
+<!-- Science 卡片 -->
 
 <h3>🔬 Science</h3>
+<!-- 科学标题 -->
 
 <p>
 Exploring science through experiments and projects.
+<!-- 科学学习内容 -->
+
 </p>
 
 </div>
+<!-- Science 卡片结束 -->
 
 
 <div class="card">
+<!-- Mathematics 卡片 -->
 
 <h3>📐 Mathematics</h3>
+<!-- 数学标题 -->
 
 <p>
 Developing mathematical thinking and problem-solving skills.
+<!-- 数学学习内容 -->
+
 </p>
 
 </div>
+<!-- Mathematics 卡片结束 -->
 
 
 <div class="card">
+<!-- English 卡片 -->
 
 <h3>🌎 English</h3>
+<!-- 英语标题 -->
 
 <p>
 Improving communication, writing, and reading skills.
+<!-- 英语学习内容 -->
+
 </p>
 
 </div>
+<!-- English 卡片结束 -->
 
 
 <div class="card">
+<!-- Engineering 卡片 -->
 
 <h3>⚙️ Engineering</h3>
+<!-- 工程学标题 -->
 
 <p>
 Exploring engineering, design, and technology.
+<!-- 工程学学习内容 -->
+
 </p>
 
 </div>
+<!-- Engineering 卡片结束 -->
 
 
 <div class="card">
+<!-- AI 卡片 -->
 
 <h3>🤖 Artificial Intelligence</h3>
+<!-- 人工智能标题 -->
 
 <p>
 Exploring AI and emerging technologies.
+<!-- 人工智能学习内容 -->
+
 </p>
 
 </div>
+<!-- AI 卡片结束 -->
 
 
 </div>
+<!-- cards 容器结束 -->
 
 </section>
+<!-- Learning 区域结束 -->
 
 
 <!-- =========================
      PROJECTS
+     项目
      ========================= -->
 
 <section id="projects">
+<!-- Projects 区域开始 -->
 
 <h2>My Projects</h2>
+<!-- 项目标题 -->
 
 <div class="cards">
+<!-- 项目卡片容器 -->
 
 
 <div class="card">
+<!-- 项目 1 -->
 
 <h3>Project 01</h3>
+<!-- 项目编号 -->
 
 <p>
 <strong>My Personal Website</strong>
+<!-- 项目名称，strong 表示加粗 -->
+
 </p>
 
 <p>
 Created my own learning portfolio using HTML and CSS.
+<!-- 项目说明 -->
+
 </p>
 
 </div>
+<!-- 项目 1 结束 -->
 
 
 <div class="card">
+<!-- 项目 2 -->
 
 <h3>Project 02</h3>
+<!-- 项目编号 -->
 
 <p>
 <strong>Python Project</strong>
+<!-- Python 项目名称 -->
+
 </p>
 
 <p>
 My first programming project.
+<!-- Python 项目说明 -->
+
 </p>
 
 </div>
+<!-- 项目 2 结束 -->
 
 
 <div class="card">
+<!-- 项目 3 -->
 
 <h3>Project 03</h3>
+<!-- 项目编号 -->
 
 <p>
 <strong>Science Project</strong>
+<!-- 科学项目名称 -->
+
 </p>
 
 <p>
 A science project and what I learned from it.
+<!-- 科学项目说明 -->
+
 </p>
 
 </div>
+<!-- 项目 3 结束 -->
 
 
 </div>
+<!-- 项目卡片容器结束 -->
 
 </section>
+<!-- Projects 区域结束 -->
 
 
 <!-- =========================
      RESEARCH
+     研究
      ========================= -->
 
 <section id="research">
+<!-- Research 区域开始 -->
 
 <h2>Research</h2>
+<!-- Research 标题 -->
 
 <div class="cards">
-
+<!-- Research 卡片容器 -->
 
 <div class="card">
+<!-- Research Project 01 -->
 
 <h3>Research Project 01</h3>
+<!-- 第一个研究项目 -->
 
 <p>
 <strong>Research Topic</strong>
+<!-- 研究主题 -->
+
 </p>
 
 <p>
 Describe the research question,
 methods, findings, and what I learned.
+<!-- 描述研究问题、研究方法、结果和学习收获 -->
+
 </p>
 
 </div>
+<!-- Research Project 01 结束 -->
 
 
 <div class="card">
+<!-- Research Project 02 -->
 
 <h3>Research Project 02</h3>
+<!-- 第二个研究项目 -->
 
 <p>
 <strong>Future Research</strong>
+<!-- 未来研究 -->
+
 </p>
 
 <p>
 A research topic I would like to explore.
+<!-- 希望以后探索的研究主题 -->
+
 </p>
 
 </div>
-
+<!-- Research Project 02 结束 -->
 
 </div>
+<!-- Research 卡片容器结束 -->
 
 </section>
+<!-- Research 区域结束 -->
 
 
 <!-- =========================
      READING
+     阅读
      ========================= -->
 
 <section id="reading">
+<!-- Reading 区域开始 -->
 
 <h2>Reading</h2>
+<!-- 阅读标题 -->
 
 <div class="cards">
-
+<!-- 阅读卡片容器 -->
 
 <div class="card">
+<!-- Book 01 -->
 
 <h3>📖 Book 01</h3>
+<!-- 第一本书 -->
 
 <p>
 <strong>Book Title</strong>
+<!-- 书名 -->
+
 </p>
 
 <p>
 Author: Author Name
+<!-- 作者 -->
+
 </p>
 
 <p>
 What I learned from this book.
+<!-- 从书中学到的内容 -->
+
 </p>
 
 </div>
+<!-- Book 01 结束 -->
 
 
 <div class="card">
+<!-- Book 02 -->
 
 <h3>📖 Book 02</h3>
+<!-- 第二本书 -->
 
 <p>
 <strong>Book Title</strong>
+<!-- 书名 -->
+
 </p>
 
 <p>
 Author: Author Name
+<!-- 作者 -->
+
 </p>
 
 <p>
 My thoughts and key ideas.
+<!-- 阅读感想和核心观点 -->
+
 </p>
 
 </div>
-
+<!-- Book 02 结束 -->
 
 </div>
+<!-- 阅读卡片容器结束 -->
 
 </section>
+<!-- Reading 区域结束 -->
 
 
 <!-- =========================
      CALENDAR
+     日历
      ========================= -->
 
 <section id="calendar">
+<!-- Calendar 区域开始 -->
 
 <h2>📅 My Learning Calendar</h2>
+<!-- 学习日历标题 -->
 
 <div class="calendar-box">
+<!-- 日历外层盒子 -->
 
 <div class="calendar-title">
 August 2026
+<!-- 当前日历月份 -->
+
 </div>
+<!-- 日历标题结束 -->
 
 
 <div class="calendar">
+<!-- 日历网格开始 -->
 
 <div class="calendar-header">Sun</div>
+<!-- 星期日 -->
+
 <div class="calendar-header">Mon</div>
+<!-- 星期一 -->
+
 <div class="calendar-header">Tue</div>
+<!-- 星期二 -->
+
 <div class="calendar-header">Wed</div>
+<!-- 星期三 -->
+
 <div class="calendar-header">Thu</div>
+<!-- 星期四 -->
+
 <div class="calendar-header">Fri</div>
+<!-- 星期五 -->
+
 <div class="calendar-header">Sat</div>
+<!-- 星期六 -->
 
 
 <div class="empty"></div>
+<!-- 8月1日前的空白日期 -->
+
 <div class="empty"></div>
+<!-- 空白日期 -->
+
 <div class="empty"></div>
+<!-- 空白日期 -->
+
 <div class="empty"></div>
+<!-- 空白日期 -->
+
 <div class="empty"></div>
+<!-- 空白日期 -->
+
 <div class="empty"></div>
+<!-- 空白日期 -->
 
 
 <div class="day">1</div>
+<!-- 8月1日 -->
 
 <div class="day">2</div>
+<!-- 8月2日 -->
 
 <div class="day">3</div>
+<!-- 8月3日 -->
 
 <div class="day">4</div>
+<!-- 8月4日 -->
 
 <div class="day">5</div>
+<!-- 8月5日 -->
 
 <div class="day">6</div>
+<!-- 8月6日 -->
 
 <div class="day">7</div>
+<!-- 8月7日 -->
 
 
 <!-- LEARNING DAY -->
+<!-- 这是一个有学习记录的日期 -->
 
 <div
 class="day learning-day"
@@ -725,17 +1209,23 @@ onclick="showLearning(
 'Computer Science',
 'Created my personal website and learned how GitHub Pages works.'
 )">
+<!-- 点击8月8日时，调用 showLearning() JavaScript 函数 -->
 
 8
+<!-- 日期数字 -->
 
 </div>
+<!-- 8月8日结束 -->
 
 
 <div class="day">9</div>
+<!-- 8月9日 -->
 
 <div class="day">10</div>
+<!-- 8月10日 -->
 
 <div class="day">11</div>
+<!-- 8月11日 -->
 
 
 <div
@@ -745,20 +1235,38 @@ onclick="showLearning(
 'Mathematics',
 'Completed algebra exercises and practiced problem-solving.'
 )">
+<!-- 点击8月12日时显示数学学习记录 -->
 
 12
+<!-- 日期数字 -->
 
 </div>
+<!-- 8月12日结束 -->
 
 
 <div class="day">13</div>
+<!-- 8月13日 -->
+
 <div class="day">14</div>
+<!-- 8月14日 -->
+
 <div class="day">15</div>
+<!-- 8月15日 -->
+
 <div class="day">16</div>
+<!-- 8月16日 -->
+
 <div class="day">17</div>
+<!-- 8月17日 -->
+
 <div class="day">18</div>
+<!-- 8月18日 -->
+
 <div class="day">19</div>
+<!-- 8月19日 -->
+
 <div class="day">20</div>
+<!-- 8月20日 -->
 
 
 <div
@@ -768,578 +1276,849 @@ onclick="showLearning(
 'Science',
 'Completed a science project and recorded the results.'
 )">
+<!-- 点击8月21日时显示科学学习记录 -->
 
 21
+<!-- 日期数字 -->
 
 </div>
+<!-- 8月21日结束 -->
 
 
 <div class="day">22</div>
+<!-- 8月22日 -->
+
 <div class="day">23</div>
+<!-- 8月23日 -->
+
 <div class="day">24</div>
+<!-- 8月24日 -->
+
 <div class="day">25</div>
+<!-- 8月25日 -->
+
 <div class="day">26</div>
+<!-- 8月26日 -->
+
 <div class="day">27</div>
+<!-- 8月27日 -->
+
 <div class="day">28</div>
+<!-- 8月28日 -->
+
 <div class="day">29</div>
+<!-- 8月29日 -->
+
 <div class="day">30</div>
+<!-- 8月30日 -->
+
 <div class="day">31</div>
+<!-- 8月31日 -->
 
 </div>
+<!-- 日历网格结束 -->
 
 
 <div class="learning-info" id="learningInfo">
+<!-- 学习信息显示区域，默认隐藏 -->
 
 <h3 id="learningDate"></h3>
+<!-- 显示学习日期 -->
 
 <p>
+<!-- 学习科目段落 -->
 
 <strong>Subject:</strong>
+<!-- Subject 加粗 -->
 
 <span id="learningSubject"></span>
+<!-- JavaScript 会把学习科目放到这里 -->
 
 </p>
 
 <p id="learningContent"></p>
+<!-- JavaScript 会把学习内容放到这里 -->
 
 </div>
+<!-- 学习信息区域结束 -->
 
 </div>
+<!-- calendar-box 结束 -->
 
 </section>
+<!-- Calendar 区域结束 -->
 
 
 <!-- =========================
      AWARDS
+     奖项
      ========================= -->
 
 <section id="awards">
+<!-- Awards 区域开始 -->
 
 <h2>Awards</h2>
+<!-- Awards 标题 -->
 
 <div class="cards">
-
+<!-- 奖项卡片容器 -->
 
 <div class="card">
+<!-- Award 01 -->
 
 <h3>🏆 Award 01</h3>
+<!-- 第一个奖项 -->
 
 <p>
 <strong>Award Name</strong>
+<!-- 奖项名称 -->
+
 </p>
 
 <p>
 Date: 2026
+<!-- 获奖时间 -->
+
 </p>
 
 <p>
 Description of the achievement.
+<!-- 奖项说明 -->
+
 </p>
 
 </div>
+<!-- Award 01 结束 -->
 
 
 <div class="card">
+<!-- Award 02 -->
 
 <h3>🏆 Award 02</h3>
+<!-- 第二个奖项 -->
 
 <p>
 <strong>Competition Achievement</strong>
+<!-- 比赛成绩 -->
+
 </p>
 
 <p>
 Date: 2026
+<!-- 时间 -->
+
 </p>
 
 <p>
 Describe the achievement.
+<!-- 成就说明 -->
+
 </p>
 
 </div>
-
+<!-- Award 02 结束 -->
 
 </div>
+<!-- Awards 卡片容器结束 -->
 
 </section>
+<!-- Awards 区域结束 -->
 
 
 <!-- =========================
      CERTIFICATES
+     证书
      ========================= -->
 
 <section id="certificates">
+<!-- Certificates 区域开始 -->
 
 <h2>Certificates</h2>
+<!-- 证书标题 -->
 
 <div class="cards">
-
+<!-- 证书卡片容器 -->
 
 <div class="card">
+<!-- Certificate 01 -->
 
 <h3>📜 Certificate 01</h3>
+<!-- 第一张证书 -->
 
 <p>
 <strong>Certificate Name</strong>
+<!-- 证书名称 -->
+
 </p>
 
 <p>
 Issued by: Organization
+<!-- 发证机构 -->
+
 </p>
 
 <p>
 Date: 2026
+<!-- 证书日期 -->
+
 </p>
 
 </div>
+<!-- Certificate 01 结束 -->
 
 
 <div class="card">
+<!-- Certificate 02 -->
 
 <h3>📜 Certificate 02</h3>
+<!-- 第二张证书 -->
 
 <p>
 <strong>Course Certificate</strong>
+<!-- 课程证书 -->
+
 </p>
 
 <p>
 Issued by: Organization
+<!-- 发证机构 -->
+
 </p>
 
 <p>
 Date: 2026
+<!-- 日期 -->
+
 </p>
 
 </div>
-
+<!-- Certificate 02 结束 -->
 
 </div>
+<!-- 证书容器结束 -->
 
 </section>
+<!-- Certificates 区域结束 -->
 
 
 <!-- =========================
      COLLEGE PREPARATION
+     大学申请准备
      ========================= -->
 
 <section id="college">
+<!-- College Preparation 区域开始 -->
 
 <h2>College Preparation</h2>
+<!-- 大学申请准备标题 -->
 
 <div class="cards">
-
+<!-- 大学申请卡片容器 -->
 
 <div class="card">
+<!-- Academic Goals -->
 
 <h3>🎓 Academic Goals</h3>
+<!-- 学术目标 -->
 
 <p>
 My academic goals and subjects I want to strengthen.
+<!-- 想加强的学科和学术目标 -->
+
 </p>
 
 </div>
+<!-- Academic Goals 结束 -->
 
 
 <div class="card">
+<!-- Technical Skills -->
 
 <h3>💻 Technical Skills</h3>
+<!-- 技术技能 -->
 
 <p>
 Programming, engineering, computer science,
 and other technical skills.
+<!-- 编程、工程、计算机科学等技能 -->
+
 </p>
 
 </div>
+<!-- Technical Skills 结束 -->
 
 
 <div class="card">
+<!-- Research Experience -->
 
 <h3>🔬 Research Experience</h3>
+<!-- 科研经历 -->
 
 <p>
 Research projects, experiments,
 and academic interests.
+<!-- 研究项目、实验和学术兴趣 -->
+
 </p>
 
 </div>
+<!-- Research Experience 结束 -->
 
 
 <div class="card">
+<!-- College Applications -->
 
 <h3>📝 College Applications</h3>
+<!-- 大学申请 -->
 
 <p>
 College research, application planning,
 essays, and important deadlines.
+<!-- 大学研究、申请规划、文书和重要截止日期 -->
+
 </p>
 
 </div>
+<!-- College Applications 结束 -->
 
 
 <div class="card">
+<!-- Extracurricular Activities -->
 
 <h3>🌎 Extracurricular Activities</h3>
+<!-- 课外活动 -->
 
 <p>
 Activities, leadership, volunteering,
 and community involvement.
+<!-- 活动、领导力、志愿服务和社区参与 -->
+
 </p>
 
 </div>
+<!-- Extracurricular Activities 结束 -->
 
 
 <div class="card">
+<!-- Future Goals -->
 
 <h3>🚀 Future Goals</h3>
+<!-- 未来目标 -->
 
 <p>
 My goals for college and my future career.
+<!-- 大学和未来职业目标 -->
+
 </p>
 
 </div>
+<!-- Future Goals 结束 -->
 
 
 </div>
+<!-- College 卡片容器结束 -->
 
 </section>
+<!-- College Preparation 区域结束 -->
 
 
 <!-- =========================
      ACTIVITIES
+     活动
      ========================= -->
 
 <section id="activities">
+<!-- Activities 区域开始 -->
 
 <h2>Activities</h2>
+<!-- 活动标题 -->
 
 <div class="cards">
-
+<!-- 活动卡片容器 -->
 
 <div class="card">
+<!-- School Activities -->
 
 <h3>🎯 School Activities</h3>
+<!-- 学校活动 -->
 
 <p>
 School clubs, events, competitions,
 and other activities.
+<!-- 学校社团、活动和比赛 -->
+
 </p>
 
 </div>
+<!-- School Activities 结束 -->
 
 
 <div class="card">
+<!-- Community Service -->
 
 <h3>🤝 Community Service</h3>
+<!-- 社区服务 -->
 
 <p>
 Volunteer work and community activities.
+<!-- 志愿工作和社区活动 -->
+
 </p>
 
 </div>
+<!-- Community Service 结束 -->
 
 
 <div class="card">
+<!-- Personal Projects -->
 
 <h3>💡 Personal Projects</h3>
+<!-- 个人项目 -->
 
 <p>
 Independent projects and activities.
+<!-- 独立项目和活动 -->
+
 </p>
 
 </div>
+<!-- Personal Projects 结束 -->
 
 
 <div class="card">
+<!-- Sports -->
 
 <h3>🏃 Sports & Recreation</h3>
+<!-- 体育和娱乐 -->
 
 <p>
 Sports, exercise, hobbies,
 and recreational activities.
+<!-- 体育、锻炼、爱好和休闲活动 -->
+
 </p>
 
 </div>
+<!-- Sports 结束 -->
 
 
 <div class="card">
+<!-- Cultural Activities -->
 
 <h3>🌎 Cultural Activities</h3>
+<!-- 文化活动 -->
 
 <p>
 Cultural experiences, travel,
 and international activities.
+<!-- 文化经历、旅行和国际活动 -->
+
 </p>
 
 </div>
+<!-- Cultural Activities 结束 -->
 
 
 <div class="card">
+<!-- Leadership -->
 
 <h3>👥 Leadership</h3>
+<!-- 领导力 -->
 
 <p>
 Leadership experiences and teamwork.
+<!-- 领导力经历和团队合作 -->
+
 </p>
 
 </div>
+<!-- Leadership 结束 -->
 
 
 </div>
+<!-- Activities 卡片容器结束 -->
 
 </section>
+<!-- Activities 区域结束 -->
 
 
 <!-- =========================
      MEDIA
+     媒体
      ========================= -->
 
 <section id="media">
+<!-- Media 区域开始 -->
 
 <h2>My Media</h2>
+<!-- 媒体标题 -->
 
 <div class="cards">
+<!-- Media 卡片容器 -->
 
 
 <!-- IMAGE -->
+<!-- 图片区域 -->
 
 <div class="card">
+<!-- 图片卡片 -->
 
 <h3>📷 My Photos</h3>
+<!-- 图片标题 -->
 
 <img
 src="images/profile.jpg"
+<!-- 图片文件路径 -->
+
 alt="Richard"
+<!-- 图片无法显示时显示的文字，同时帮助无障碍阅读 -->
+
 class="media-image"
+<!-- 使用 CSS 中定义的 media-image 样式 -->
+
 >
+<!-- img 标签结束 -->
 
 <p>
 Photos from my learning journey.
+<!-- 图片说明 -->
+
 </p>
 
 </div>
+<!-- 图片卡片结束 -->
 
 
 <!-- AUDIO -->
+<!-- 音频区域 -->
 
 <div class="card">
+<!-- 音频卡片 -->
 
 <h3>🎵 My Audio</h3>
+<!-- 音频标题 -->
 
 <audio controls>
+<!-- 创建音频播放器，controls 显示播放按钮 -->
 
 <source
 src="audio/presentation.mp3"
+<!-- 音频文件路径 -->
+
 type="audio/mpeg"
+<!-- 告诉浏览器音频格式是 MP3 -->
+
 >
 
 Your browser does not support audio.
+<!-- 如果浏览器不支持 audio，显示这句话 -->
 
 </audio>
+<!-- 音频播放器结束 -->
 
 <p>
 My recorded presentation.
+<!-- 音频说明 -->
+
 </p>
 
 </div>
+<!-- 音频卡片结束 -->
 
 
 <!-- VIDEO -->
+<!-- 视频区域 -->
 
 <div class="card">
+<!-- 视频卡片 -->
 
 <h3>🎬 My Videos</h3>
+<!-- 视频标题 -->
 
 <video controls class="media-video">
+<!-- 创建视频播放器 -->
 
 <source
 src="videos/project1.mp4"
+<!-- 视频文件路径 -->
+
 type="video/mp4"
+<!-- 告诉浏览器视频格式是 MP4 -->
+
 >
 
 Your browser does not support video.
+<!-- 如果浏览器不支持视频，显示这句话 -->
 
 </video>
+<!-- 视频播放器结束 -->
 
 <p>
 My project demonstration.
+<!-- 视频说明 -->
+
 </p>
 
 </div>
+<!-- 视频卡片结束 -->
 
 
 </div>
+<!-- Media 卡片容器结束 -->
 
 </section>
+<!-- Media 区域结束 -->
 
 
 <!-- =========================
      STATISTICS
+     统计
      ========================= -->
 
 <section>
+<!-- Statistics 区域开始 -->
 
 <h2>My Learning Statistics</h2>
+<!-- 学习统计标题 -->
 
 <div class="stats">
+<!-- 统计卡片容器 -->
 
 
 <div class="stat">
+<!-- 学习天数统计 -->
 
 <div class="stat-number">
 3
+<!-- 当前学习天数 -->
+
 </div>
 
 <p>Learning Days</p>
+<!-- 学习天数说明 -->
 
 </div>
+<!-- 学习天数卡片结束 -->
 
 
 <div class="stat">
+<!-- 项目统计 -->
 
 <div class="stat-number">
 3
+<!-- 项目数量 -->
+
 </div>
 
 <p>Projects</p>
+<!-- 项目说明 -->
 
 </div>
+<!-- 项目统计结束 -->
 
 
 <div class="stat">
+<!-- Research 统计 -->
 
 <div class="stat-number">
 0
+<!-- 当前研究项目数量 -->
+
 </div>
 
 <p>Research Projects</p>
+<!-- 研究项目说明 -->
 
 </div>
+<!-- Research 统计结束 -->
 
 
 <div class="stat">
+<!-- Awards 统计 -->
 
 <div class="stat-number">
 0
+<!-- 当前奖项数量 -->
+
 </div>
 
 <p>Awards</p>
+<!-- 奖项说明 -->
 
 </div>
+<!-- Awards 统计结束 -->
 
 
 <div class="stat">
+<!-- Certificates 统计 -->
 
 <div class="stat-number">
 0
+<!-- 当前证书数量 -->
+
 </div>
 
 <p>Certificates</p>
+<!-- 证书说明 -->
 
 </div>
+<!-- Certificates 统计结束 -->
 
 
 <div class="stat">
+<!-- Books 统计 -->
 
 <div class="stat-number">
 0
+<!-- 当前阅读书籍数量 -->
+
 </div>
 
 <p>Books Read</p>
+<!-- 阅读书籍说明 -->
 
 </div>
+<!-- Books 统计结束 -->
 
 
 </div>
+<!-- stats 容器结束 -->
 
 </section>
+<!-- Statistics 区域结束 -->
 
 
 <!-- =========================
      JOURNEY
+     学习历程
      ========================= -->
 
 <section id="journey">
+<!-- Journey 区域开始 -->
 
 <h2>My Learning Journey</h2>
+<!-- 学习历程标题 -->
 
 <div class="timeline">
+<!-- 时间线开始 -->
 
 
 <div class="timeline-item">
+<!-- 第一项时间线 -->
 
 <h3>2026</h3>
+<!-- 时间 -->
 
 <p>
 Started building my personal learning portfolio.
+<!-- 2026年的学习经历 -->
+
 </p>
 
 </div>
+<!-- 第一项结束 -->
 
 
 <div class="timeline-item">
+<!-- 第二项时间线 -->
 
 <h3>Next Step</h3>
+<!-- 下一步 -->
 
 <p>
 Learn new skills and complete more projects.
+<!-- 学习新技能并完成更多项目 -->
+
 </p>
 
 </div>
+<!-- 第二项结束 -->
 
 
 <div class="timeline-item">
+<!-- 第三项时间线 -->
 
 <h3>Future</h3>
+<!-- 未来 -->
 
 <p>
 Continue learning, creating, and growing.
+<!-- 持续学习、创造和成长 -->
+
 </p>
 
 </div>
+<!-- 第三项结束 -->
 
 
 </div>
+<!-- timeline 结束 -->
 
 </section>
+<!-- Journey 区域结束 -->
 
 
 <!-- =========================
      FOOTER
+     页脚
      ========================= -->
 
 <footer>
+<!-- 网页底部开始 -->
 
 <p>
 © 2026 Richard | My Student Portfolio
+<!-- Copyright 和网站名称 -->
+
 </p>
 
 <p>
 Learning · Creating · Growing
+<!-- 网站结束语 -->
+
 </p>
 
 </footer>
+<!-- 页脚结束 -->
 
 
 <!-- =========================
      JAVASCRIPT
+     JavaScript 程序
      ========================= -->
 
 <script>
+// JavaScript 程序开始
 
 function showLearning(date, subject, content) {
+// 创建一个叫 showLearning 的函数
+// date = 日期
+// subject = 学习科目
+// content = 学习内容
 
     document.getElementById("learningInfo").style.display = "block";
+    // 找到 id="learningInfo" 的元素
+    // 把它的 display 从 none 改成 block
+    // 因此学习信息区域会显示出来
 
     document.getElementById("learningDate").innerText = date;
+    // 把传入的 date 放入 learningDate 元素
 
     document.getElementById("learningSubject").innerText = subject;
+    // 把传入的 subject 放入 learningSubject 元素
 
     document.getElementById("learningContent").innerText = content;
+    // 把传入的 content 放入 learningContent 元素
 
 }
+// showLearning 函数结束
 
 </script>
+<!-- JavaScript 程序结束 -->
 
 
 </body>
+<!-- body 结束 -->
 
 </html>
+<!-- HTML 文档结束 -->
